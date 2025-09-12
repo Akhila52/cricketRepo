@@ -9,49 +9,7 @@ import { interval, Subscription } from 'rxjs';
 })
 export class MatchComponent {
 
-//   constructor(private httpService:HttpserviceService) {}
-// selectedTeam1!: number;
-// selectedTeam2!: number;
-// matchResult: any;
-//  teams: any[] = [];    // ✅ start as empty array
-//   private pollSubscription: Subscription | undefined;
 
-//   fetchResult() {
-//     // Start continuous polling every 2 seconds
-//     if (this.pollSubscription) {
-//       this.pollSubscription.unsubscribe(); // stop previous polling if any
-//     }
-
-//     this.pollSubscription = interval(2000).subscribe(() => {
-//       this.httpService.get(
-//         `cricket/match/playMatch?team1Id=${this.selectedTeam1}&team2Id=${this.selectedTeam2}`
-//       ).subscribe(result => {
-//         this.matchResult = result;
-//       });
-//     });
-//   }
-
-//   ngOnDestroy() {
-//     // Stop polling when component is destroyed
-//     if (this.pollSubscription) {
-//       this.pollSubscription.unsubscribe();
-//     }
-//   }
-
-
-// ngOnInit(): void {
-//     this.fetchTeams();
-//   }
-
-
-//   fetchTeams() {
-//     this.httpService.get('cricket/teams').subscribe((data:any) => {
-//               console.log('Fetched teams:ghg', data);
-
-//     this.teams = data;
-//         console.log('Fetched teams:', data);
-//     });
-//   }
 teams: any[] = [];
   selectedTeam1: number | undefined;
   selectedTeam2: number | undefined;
@@ -59,7 +17,7 @@ teams: any[] = [];
   matchStatus: string = '';
   winnerMessage: string = '';
   private pollSubscription: Subscription | undefined;
-
+  noPlayer:boolean=false;
   constructor(private httpService:HttpserviceService) {}
 
   ngOnInit() {
@@ -83,7 +41,11 @@ teams: any[] = [];
       alert('Please select both teams');
       return;
     }
-
+    
+    if(this.selectedTeam1 === this.selectedTeam2){
+      alert("Please select different teams to start the match.");
+      return;
+    }
     this.matchStatus = '🏏 Match has started!';
     this.matchResult = null;
     this.winnerMessage = '';
@@ -92,21 +54,30 @@ teams: any[] = [];
     if (this.pollSubscription) {
       this.pollSubscription.unsubscribe();
     }
-
+this.noPlayer=false;
     // Poll every 2 seconds
     // this.pollSubscription = interval(2000).subscribe(() => {
       this.httpService.get(
         `cricket/match/playMatch?team1Id=${this.selectedTeam1}&team2Id=${this.selectedTeam2}`
       ).subscribe(result => {
+        if(result){
         this.matchResult = result;
+        console.log("the match result is ",this.matchResult.playersMesage);
+       if (this.matchResult.playersMesage?.toLowerCase().includes("no")) {
+       alert("One of your selected teams does not have no players. Please select valid teams or add players to selected team.");
+       this.noPlayer = true;   
+       }
+       
+        console.log('Match result:', result);
         this.updateWinnerMessage();
+        }
+        
       });
     // });
   }
 
   updateWinnerMessage() {
     if (!this.matchResult) return;
-
     const { team1Score, team2Score, team1Name, team2Name } = this.matchResult;
     if (team1Score === 0 && team2Score === 0) {
     this.winnerMessage = `😅 Both teams are warming up and not making any progress yet!`;

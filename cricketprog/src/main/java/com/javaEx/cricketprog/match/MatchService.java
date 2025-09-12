@@ -29,6 +29,10 @@ public class MatchService {
 		if(battingTeam != 0) {
 			 bowlingTeam = startMatch(dto.getTeam2Id(), dto.getTeam1Id());
 		}
+		
+		if(battingTeam==2 || bowlingTeam==2) {
+			return null;
+		}
 		Match m = new Match();
 		m.setTeam1_id(dto.getTeam1Id());
 		m.setTeam1Score(battingTeam);
@@ -64,6 +68,9 @@ public Long startMatch(Long batting , Long bowling)  {
 			List<Players> pBowling = playerRepository.findByTeamId(bowling);
 		
 			
+			if(pBatting==null || pBowling==null) {
+				return 2l;
+			}
 			List<Players> battingList = new ArrayList<Players>();
 			List<Players> bowlingList = new ArrayList<Players>();
 			
@@ -115,7 +122,9 @@ public Long startMatch(Long batting , Long bowling)  {
 		int battingIndex = 0;
 		Long teamScore = 0L;
 		int player_score = 0;
-
+        int sixers=0;
+        int fours=0;
+        
 				
 		for(int i = 1 ;i <= 120 && battingIndex < batting.size(); i++) {
 //				Thread.sleep(1000);
@@ -143,12 +152,19 @@ public Long startMatch(Long batting , Long bowling)  {
 //						System.err.println("batting index : "+battingIndex);
 						player_score = 0;
 					}
+					
+					
+					if(score == 4) {
+						fours++;
+					}
+					if(score ==6) {
+						sixers++;
+					}
 				}
 		
 //		System.err.println("Team Score : "+teamScore);
 		
 		return teamScore;
-		
 		}
 
 

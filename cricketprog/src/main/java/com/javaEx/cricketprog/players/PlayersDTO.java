@@ -9,6 +9,7 @@ public class PlayersDTO {
     public String playerName;
     public String speciality;
     public Long teamId;
+    public Long age;
 
 //    public PlayerDTO() {}
 //    public PlayerDTO(Integer id, String playerName, String speciality, Integer teamId) {

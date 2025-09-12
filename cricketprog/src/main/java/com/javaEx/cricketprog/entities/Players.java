@@ -22,6 +22,8 @@ public class Players extends BaseEntity implements Serializable{
     @Column(name = "team_id")
     public Long teamId;
     
+    @Column(name = "age")
+    public Long age;
     
 //    @ManyToOne
 //    @JoinColumn(name = "team_id")
