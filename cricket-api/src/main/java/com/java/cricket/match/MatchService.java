@@ -1,4 +1,4 @@
-package com.javaEx.cricketprog.match;
+package com.java.cricket.match;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,11 +7,11 @@ import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.javaEx.cricketprog.entities.Match;
-import com.javaEx.cricketprog.entities.Players;
-import com.javaEx.cricketprog.entities.Teams;
-import com.javaEx.cricketprog.players.PlayersRepository;
-import com.javaEx.cricketprog.team.TeamsRepository;
+import com.java.cricket.entities.Match;
+import com.java.cricket.entities.Players;
+import com.java.cricket.entities.Teams;
+import com.java.cricket.players.PlayersRepository;
+import com.java.cricket.team.TeamsRepository;
 
 @Service
 public class MatchService {

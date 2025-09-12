@@ -1,4 +1,4 @@
-package com.javaEx.cricketprog.match;
+package com.java.cricket.match;
 
 import lombok.Getter;
 import lombok.Setter;

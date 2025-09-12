@@ -1,4 +1,4 @@
-package com.javaEx.cricketprog.entities;
+package com.java.cricket.entities;
 
 import java.io.Serializable;
 
@@ -7,7 +7,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-@Entity(name = "players")
+@Entity
+@Table(name = "players")
 public class Players extends BaseEntity implements Serializable{
 
 

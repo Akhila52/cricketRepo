@@ -1,4 +1,4 @@
-package com.javaEx.cricketprog.players;
+package com.java.cricket.players;
 
 import lombok.Getter;
 import lombok.Setter;

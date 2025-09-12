@@ -1,4 +1,4 @@
-package com.javaEx.cricketprog.team;
+package com.java.cricket.team;
 
 import java.util.List;
 

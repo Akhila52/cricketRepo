@@ -1,4 +1,4 @@
-package com.javaEx.cricketprog.team;
+package com.java.cricket.team;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.javaEx.cricketprog.entities.Teams;
+import com.java.cricket.entities.Teams;
 
 @Service
 public class TeamsService {

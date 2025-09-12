@@ -1,4 +1,4 @@
-package com.javaEx.cricketprog.entities;
+package com.java.cricket.entities;
 
 import java.io.Serializable;
 
@@ -7,11 +7,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter @Getter 
-@Entity(name = "matchresults")
+@Entity
+@Table(name = "matchresults")
 public class Match extends BaseEntity implements Serializable{
 
 

@@ -1,4 +1,4 @@
-package com.javaEx.cricketprog.entities;
+package com.java.cricket.entities;
 
 import java.io.Serializable;
 import java.util.Date;
