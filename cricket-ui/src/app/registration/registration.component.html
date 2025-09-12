@@ -1,0 +1,43 @@
+<div class="container mt-5 " style="padding: 20px; border-radius: 10px;">
+    <div class="card shadow-lg p-4" style="background-color: #EEEEEE; border-radius: 10px;">
+        <h2 class="text-center mb-4">🏏 Cricket Team Registration</h2>
+
+        <form [formGroup]="teamForm" (ngSubmit)="submitTeam()">
+            <!-- Team Selection -->
+            <div class="mb-3">
+                <label for="team" class="form-label">Country</label>
+                <select id="team" class="form-select" formControlName="team" required>
+                    <option value="">-- Select Team --</option>
+                    <option *ngFor="let t of teams" [value]="t.id">{{ t.teamCountry }}</option>
+                </select>
+            </div>
+
+            <!-- Player Rows -->
+            <div formArrayName="players" *ngFor="let player of players.controls; let i = index">
+                <div [formGroupName]="i" class="col-md-12 mb-2">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Player {{ i+1 }}</label>
+                            <input type="text" class="form-control" formControlName="name" placeholder="Enter name" required>
+                        </div>
+            
+                        <div class="col-md-8">
+                            <br>            
+                            <!-- Radio buttons bound to the same control -->
+                            <div class="form-check form-check-inline" *ngFor="let s of specialities">
+                                <input class="form-check-input" type="radio" [formControlName]="'speciality'"
+                                [value]="s"
+                                required>
+                                <label class="form-check-label">{{ s }}</label>
+                            </div>
+            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-success w-100 mt-3">Register Team</button>
+        </form>
+    </div>
+</div>

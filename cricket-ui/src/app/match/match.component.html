@@ -1,0 +1,69 @@
+<!-- <div class="row d-flex justify-content-center align-items-center mt-4">
+    <div class="col-md-4">
+        <label for="team1">Team 1</label>
+        <select id="team1" class="form-select" [(ngModel)]="selectedTeam1">
+            <option *ngFor="let t of teams" [value]="t.id">{{ t.teamCountry }}</option>
+        </select>
+    </div>
+
+    <div class="col-md-4">
+        <label for="team2">Team 2</label>
+        <select id="team2" class="form-select" [(ngModel)]="selectedTeam2">
+            <option *ngFor="let t of teams" [value]="t.id">{{ t.teamCountry }}</option>
+        </select>
+    </div>
+
+  
+</div>
+<div class="row d-flex justify-content-center align-items-center mt-4">
+<div class="col-md-2 d-flex justify-content-center align-items-center mt-3 ">
+    <button class="btn btn-primary w-100" (click)="fetchResult()">Start Match</button>
+</div>
+</div>
+
+
+
+<div *ngIf="matchResult" class="mt-3">
+    <h4>{{ matchResult.team1Name }}: {{ matchResult.team1Score }}
+        vs
+        {{ matchResult.team2Name }}: {{ matchResult.team2Score }}</h4>
+</div> -->
+
+<div class="row d-flex justify-content-center align-items-center mt-4">
+    <div class="col-md-4">
+        <label for="team1" style="color: white;">Team 1</label>
+        <select id="team1" class="form-select" [(ngModel)]="selectedTeam1">
+                    <option value="" disabled selected>Select Team 1</option>
+            <option *ngFor="let t of teams" [value]="t.id">{{ t.teamCountry }}</option>
+        </select>
+    </div>
+
+    <div class="col-md-4">
+        <label for="team2" style="color: white;">Team 2</label>
+        <select id="team2" class="form-select" [(ngModel)]="selectedTeam2">
+                    <option value="" disabled selected>Select Team 2</option>
+            <option *ngFor="let t of teams" [value]="t.id">{{ t.teamCountry }}</option>
+        </select>
+    </div>
+</div>
+
+<div class="row d-flex justify-content-center align-items-center mt-4">
+    <div class="col-md-2 d-flex justify-content-center align-items-center mt-3">
+        <button class="btn btn-success w-100" (click)="startMatch()">Start Match</button>
+    </div>
+</div>
+<div class="d-flex flex-column justify-content-center align-items-center">
+
+    <div *ngIf="matchStatus" class="mt-3 text-center" style="color: white;">
+        <h5>{{ matchStatus }}</h5>
+    </div>
+
+    <div *ngIf="matchResult" class="mt-3 text-center" style="color: white;">
+        <h4>
+            {{ matchResult.team1Name }}: {{ matchResult.team1Score }} vs
+            {{ matchResult.team2Name }}: {{ matchResult.team2Score }}
+        </h4>
+        <p  style="color: white;">{{ winnerMessage }}</p>
+    </div>
+
+</div>
