@@ -28,17 +28,10 @@ public class PlayersService {
 	            player.setPlayerName(dto.getPlayerName());
 	            player.setSpeciality(dto.getSpeciality());
 	            player.setTeamId(dto.getTeamId());
-
-	            // Fetch team from DB
-//	            Team team = teamRepository.findById(dto.getTeamId()).orElse(null);
-//	            player.setTeam(team);
-
 	            players.add(player);
 	        }
 
 	        List<Players> plist = playerRepository.saveAll(players);
-	        
-	        System.err.println("plist length : "+plist.size()+" : playerDTOs.size() : "+playerDTOs.size());
 	        
 	        if(plist.size() == playerDTOs.size()) {
 	        	return true;
@@ -52,7 +45,6 @@ public class PlayersService {
 			
 			List<Players> playersList = playerRepository.findByTeamId(teamId);
 			
-			System.err.println("length of players based on team : "+playersList.size());
 			List<PlayersDTO> playersDTOs = new ArrayList<PlayersDTO>();
 			
 			if(playersList.isEmpty()) {
@@ -69,7 +61,6 @@ public class PlayersService {
 				
 			}
 			
-			System.err.println("length of playersDTOs based on team : "+playersDTOs.size());
 			
 			return playersDTOs;
 		}

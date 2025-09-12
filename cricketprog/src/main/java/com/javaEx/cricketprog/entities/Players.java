@@ -12,7 +12,7 @@ public class Players extends BaseEntity implements Serializable{
 
 
 
-    @Column(name = "player_name", nullable = false)
+    @Column(name = "player_name")
     public String playerName;
 
     @Column(name = "speciality")
@@ -21,9 +21,5 @@ public class Players extends BaseEntity implements Serializable{
     
     @Column(name = "team_id")
     public Long teamId;
-    
-    
-//    @ManyToOne
-//    @JoinColumn(name = "team_id")
-//    public Team team;
+
 }

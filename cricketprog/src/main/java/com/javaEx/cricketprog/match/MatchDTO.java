@@ -13,12 +13,4 @@ public class MatchDTO {
     private String team1Name;
     private String team2Name;
 
-//    public MatchResultDTO() {}
-//    public MatchResultDTO(Integer id, Integer team1Id, Integer team2Id, Integer team1Score, Integer team2Score) {
-//        this.id = id;
-//        this.team1Id = team1Id;
-//        this.team2Id = team2Id;
-//        this.team1Score = team1Score;
-//        this.team2Score = team2Score;
-//    }
 }

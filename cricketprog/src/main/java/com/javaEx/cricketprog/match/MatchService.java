@@ -23,7 +23,6 @@ public class MatchService {
 	@Autowired private TeamsRepository teamRepository;
 	
 	public MatchDTO playMatch(MatchDTO dto) {
-		// TODO Auto-generated method stub
 		Long bowlingTeam = 0L;
 		Long battingTeam = startMatch(dto.getTeam1Id(), dto.getTeam2Id());
 		if(battingTeam != 0) {
@@ -123,11 +122,9 @@ public Long startMatch(Long batting , Long bowling)  {
 				over++;
 
 				int bowlerVal = over % bowler.size();
-//				System.out.println("bowlerVal -------------------------: "+bowlerVal +"   :   "+bowler.size()+"  :::   "+over+" :: teamscore :: "+teamScore);
-			}
+				}
 					
 					int score = random.nextInt(10);
-					System.out.println("score value : "+score);
 					if(score <= 6 ) {
 						
 						player_score += score;
@@ -140,12 +137,10 @@ public Long startMatch(Long batting , Long bowling)  {
 
 						battingIndex++;
 						
-//						System.err.println("batting index : "+battingIndex);
 						player_score = 0;
 					}
 				}
 		
-//		System.err.println("Team Score : "+teamScore);
 		
 		return teamScore;
 		

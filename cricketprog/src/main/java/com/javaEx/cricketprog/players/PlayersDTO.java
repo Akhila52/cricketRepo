@@ -10,11 +10,4 @@ public class PlayersDTO {
     public String speciality;
     public Long teamId;
 
-//    public PlayerDTO() {}
-//    public PlayerDTO(Integer id, String playerName, String speciality, Integer teamId) {
-//        this.id = id;
-//        this.playerName = playerName;
-//        this.speciality = speciality;
-//        this.teamId = teamId;
-//    }
 }
