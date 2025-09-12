@@ -18,10 +18,10 @@ export interface Player {
 })
 export class RegistrationComponent {
 
-  teamForm!: FormGroup;
+   teamForm!: FormGroup;
 
   teams :Team[]=[];
-  specialities = ['Batsman', 'Bowler', 'All-Rounder'];
+  specialities = ['Batsman', 'Bowler', 'All-Rounder', 'Wicket-Keeper'];
 
   constructor(private fb: FormBuilder, private httpService:HttpserviceService) {}
 
@@ -56,12 +56,8 @@ export class RegistrationComponent {
   // Add a player FormGroup to the array
   addPlayer() {
     const playerGroup = this.fb.group({
-      name: ['', Validators.required, Validators.pattern('^[A-Za-z ]+$') ],
-      speciality: ['', Validators.required],
-      age: ['', Validators.required,
-         Validators.pattern('^[0-9]+$'), 
-        Validators.max(40)  
-      ],
+      name: ['', Validators.required],
+      speciality: ['', Validators.required]
     });
     this.players.push(playerGroup);
   }
@@ -78,15 +74,13 @@ submitTeam() {
   const payload = formValue.players.map((player: any) => ({
   playerName: player.name,
   speciality: player.speciality,
-  teamId: teamId,
-  age: player.age
+  teamId: teamId
 }));
-
 
 this.httpService.post('http://localhost:8081/cricket/players/addPlayers', payload)
 
     console.log('Payload:', payload);
-// cricket/players/addPlayers
+
     // Call backend
     this.httpService.post('cricket/players/addPlayers', payload).subscribe({
       next: (res) => {
@@ -104,13 +98,10 @@ this.httpService.post('http://localhost:8081/cricket/players/addPlayers', payloa
         console.error('Error saving players:', err);
       }
     });
-  } 
-  else {
+  } else {
     alert('Please fill all required fields');
   }
 }
-
-
 
 
 }

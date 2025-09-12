@@ -17,7 +17,5 @@ public class Teams extends BaseEntity implements Serializable {
     @Column(name = "team_country", nullable = false)
     private String teamCountry;
 
-    // Uncomment if you add Player entity
-    // @OneToMany(mappedBy = "team")
-    // private List<Player> players;
+
 }
