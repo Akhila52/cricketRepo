@@ -1,0 +1,40 @@
+<div class="container mt-4  "  >
+
+<div class="row d-flex justify-content-center align-items-center mt-4">
+    <div class="d-flex flex-column align-items-center w-50">
+        <label for="team1" style="color: white;">Select a team</label>
+        <select class="form-select w-100" [(ngModel)]="selectedTeamId" (change)="onTeamChange()">
+            <option value="">-- Select team --</option>
+            <option *ngFor="let team of teams" [value]="team.id">{{ team.teamCountry }}</option>
+        </select>
+    </div>
+</div>
+
+
+   
+    <div class="mt-4" *ngIf="players.length > 0">
+        <h6 style="color: white;">Players for Team </h6>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Player Name</th>
+                    <th>Speciality</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let player of players">
+                    <td>{{ player.playerName }}</td>
+                    <td>{{ player.speciality }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+

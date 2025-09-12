@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/cricket/players")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PlayersControllers {
 
 	
@@ -29,6 +29,7 @@ public class PlayersControllers {
 	
 	
 	@GetMapping("/getPlayersByTeamID")
+//	@CrossOrigin(origins = "*")
 	public List<PlayersDTO> getPlayersByTeamID(@RequestParam Long teamId){
 		System.err.println("team id for fetching players ::: "+teamId+ " playersService.getPlayersByTeamID(teamId) : "+playersService.getPlayersByTeamID(teamId).size());
 		return playersService.getPlayersByTeamID(teamId);
