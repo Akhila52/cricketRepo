@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/cricket/players")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://18.222.135.44:8085")
 public class PlayersControllers {
 
 	

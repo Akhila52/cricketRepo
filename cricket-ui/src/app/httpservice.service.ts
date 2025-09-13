@@ -9,7 +9,7 @@ export class HttpserviceService {
 
   constructor(private http: HttpClient,private router: Router) { }
   
- context = 'http://192.168.1.12:8081/';
+ context = 'http://18.222.135.44:8085/';
   post(url: any, request: any) {
     // return this.http.post(this.context+url, request);
     console.log(  "the ppost url is ",this.context+url)

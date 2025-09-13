@@ -24,7 +24,6 @@ created_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updated_by INT,
 updated_timestamp TIMESTAMP
 
-    FOREIGN KEY (team_id) REFERENCES teams(id)
 );
 
 -- Match Results table
@@ -39,6 +38,5 @@ created_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updated_by INT,
 updated_timestamp TIMESTAMP
 
-    FOREIGN KEY (team1_id) REFERENCES teams(id),
-    FOREIGN KEY (team2_id) REFERENCES teams(id)
+  
 );

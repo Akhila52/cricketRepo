@@ -56,18 +56,15 @@ export class RegistrationComponent {
   // Add a player FormGroup to the array
   addPlayer() {
     const playerGroup = this.fb.group({
-      name: ['', Validators.required, Validators.pattern('^[A-Za-z ]+$') ],
+      name: ['', Validators.required ],
       speciality: ['', Validators.required],
       age: ['', Validators.required,
-         Validators.pattern('^[0-9]+$'), 
-        Validators.max(40)  
       ],
     });
     this.players.push(playerGroup);
   }
 
 submitTeam() {
-  if (this.teamForm.valid) {
     const formValue = this.teamForm.value;
 
     // Extract team info
@@ -81,9 +78,6 @@ submitTeam() {
   teamId: teamId,
   age: player.age
 }));
-
-
-this.httpService.post('http://localhost:8081/cricket/players/addPlayers', payload)
 
     console.log('Payload:', payload);
 // cricket/players/addPlayers
@@ -104,13 +98,7 @@ this.httpService.post('http://localhost:8081/cricket/players/addPlayers', payloa
         console.error('Error saving players:', err);
       }
     });
-  } 
-  else {
-    alert('Please fill all required fields');
-  }
+ 
 }
-
-
-
 
 }
