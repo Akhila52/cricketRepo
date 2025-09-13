@@ -28,7 +28,6 @@ public class PlayersService {
 	            player.setPlayerName(dto.getPlayerName());
 	            player.setSpeciality(dto.getSpeciality());
 	            player.setTeamId(dto.getTeamId());
-	            player.setAge(dto.getAge());
 
 	            // Fetch team from DB
 //	            Team team = teamRepository.findById(dto.getTeamId()).orElse(null);
@@ -66,7 +65,6 @@ public class PlayersService {
 				playerDto.setPlayerName(players.getPlayerName());
 				playerDto.setSpeciality(players.getSpeciality());
 				playerDto.setTeamId(players.getTeamId());
-				playerDto.setAge(players.getAge());
 				playersDTOs.add(playerDto);
 				
 			}

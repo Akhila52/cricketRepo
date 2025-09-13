@@ -63,11 +63,6 @@ this.noPlayer=false;
         if(result){
         this.matchResult = result;
         console.log("the match result is ",this.matchResult.playersMesage);
-       if (this.matchResult.playersMesage?.toLowerCase().includes("no")) {
-       alert("One of your selected teams does not have no players. Please select valid teams or add players to selected team.");
-       this.noPlayer = true;   
-       }
-       
         console.log('Match result:', result);
         this.updateWinnerMessage();
         }

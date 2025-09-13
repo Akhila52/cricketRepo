@@ -12,7 +12,7 @@
 
 
    
-    <div class="mt-4" *ngIf="players.length > 0 else noPlayersMessage">
+    <div class="mt-4" *ngIf="players.length > 0">
         <h6 style="color: white;">Players for Team </h6>
         <table class="table table-bordered table-striped">
             <thead>
@@ -32,11 +32,7 @@
         </table>
     </div>
 
-<ng-template #noPlayersMessage>
-    <p  *ngIf="selectedTeamId" class="text-center mt-4" style="color: white;">
-        No players found for the selected team.
-    </p>
-</ng-template>
+
 
 </div>
 

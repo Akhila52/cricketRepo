@@ -27,18 +27,7 @@
                                 <div *ngIf="player.get('name')?.errors?.['pattern']">Name must contain only letters</div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <label>Age</label>
-                            <input type="number" class="form-control" formControlName="age" placeholder="Enter age" required
-                              pattern="^[0-9]+$"
-                              max="40"
-                            >
-                            <div *ngIf="player.get('age')?.invalid && (player.get('age')?.dirty || player.get('age')?.touched)" class="text-danger">
-                                <div *ngIf="player.get('age')?.errors?.['required']">Age is required</div>
-                                <div *ngIf="player.get('age')?.errors?.['pattern']">Age must be a number</div>
-                                <div *ngIf="player.get('age')?.errors?.['max']">Age cannot be more than 40</div>
-                            </div>
-                        </div>
+                      
             
                         <div class="col-md-4">
                             <br>            

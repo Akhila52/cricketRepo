@@ -58,8 +58,7 @@ export class RegistrationComponent {
     const playerGroup = this.fb.group({
       name: ['', Validators.required ],
       speciality: ['', Validators.required],
-      age: ['', Validators.required,
-      ],
+      
     });
     this.players.push(playerGroup);
   }

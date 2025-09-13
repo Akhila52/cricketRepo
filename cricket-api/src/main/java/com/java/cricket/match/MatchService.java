@@ -16,22 +16,17 @@ import com.java.cricket.team.TeamsRepository;
 @Service
 public class MatchService {
 
-	@Autowired private MatchRepository matchRepository;
+@Autowired private MatchRepository matchRepository;
 	
 	@Autowired private PlayersRepository playerRepository;
 	
 	@Autowired private TeamsRepository teamRepository;
 	
 	public MatchDTO playMatch(MatchDTO dto) {
-		// TODO Auto-generated method stub
 		Long bowlingTeam = 0L;
 		Long battingTeam = startMatch(dto.getTeam1Id(), dto.getTeam2Id());
 		if(battingTeam != 0) {
 			 bowlingTeam = startMatch(dto.getTeam2Id(), dto.getTeam1Id());
-		}
-		
-		if(battingTeam==2 || bowlingTeam==2) {
-			return null;
 		}
 		Match m = new Match();
 		m.setTeam1_id(dto.getTeam1Id());
@@ -68,9 +63,6 @@ public Long startMatch(Long batting , Long bowling)  {
 			List<Players> pBowling = playerRepository.findByTeamId(bowling);
 		
 			
-			if(pBatting==null || pBowling==null) {
-				return 2l;
-			}
 			List<Players> battingList = new ArrayList<Players>();
 			List<Players> bowlingList = new ArrayList<Players>();
 			
@@ -122,9 +114,7 @@ public Long startMatch(Long batting , Long bowling)  {
 		int battingIndex = 0;
 		Long teamScore = 0L;
 		int player_score = 0;
-        int sixers=0;
-        int fours=0;
-        
+
 				
 		for(int i = 1 ;i <= 120 && battingIndex < batting.size(); i++) {
 //				Thread.sleep(1000);
@@ -132,11 +122,9 @@ public Long startMatch(Long batting , Long bowling)  {
 				over++;
 
 				int bowlerVal = over % bowler.size();
-//				System.out.println("bowlerVal -------------------------: "+bowlerVal +"   :   "+bowler.size()+"  :::   "+over+" :: teamscore :: "+teamScore);
-			}
+				}
 					
 					int score = random.nextInt(10);
-					System.out.println("score value : "+score);
 					if(score <= 6 ) {
 						
 						player_score += score;
@@ -149,22 +137,13 @@ public Long startMatch(Long batting , Long bowling)  {
 
 						battingIndex++;
 						
-//						System.err.println("batting index : "+battingIndex);
 						player_score = 0;
-					}
-					
-					
-					if(score == 4) {
-						fours++;
-					}
-					if(score ==6) {
-						sixers++;
 					}
 				}
 		
-//		System.err.println("Team Score : "+teamScore);
 		
 		return teamScore;
+		
 		}
 
 

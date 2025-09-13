@@ -16,19 +16,16 @@ import lombok.Setter;
 @Table(name = "matchresults")
 public class Match extends BaseEntity implements Serializable{
 
-
-//    @ManyToOne
-//    @JoinColumn(name = "team1_id", nullable = false)
+	@Column(name = "team1_id")
     public Long team1_id;
 
-//    @ManyToOne
-//    @JoinColumn(name = "team2_id", nullable = false)
+	@Column(name = "team2_id")
     public Long team2_id;
 
-    @Column(name = "team1_score", nullable = false)
+    @Column(name = "team1_score")
     public Long team1Score;
 
-    @Column(name = "team2_score", nullable = false)
+    @Column(name = "team2_score")
     public Long team2Score;
 }
 
